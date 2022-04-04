@@ -73,7 +73,7 @@ class MainBoardViewController: UIViewController
     }
     
     @IBAction func didTapTryAgainButton(_ sender: Any) {
-        print ("Try Again")
+        print ("Try Again Makhfirat")
         setUp()
     }
     
