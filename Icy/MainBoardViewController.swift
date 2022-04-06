@@ -101,5 +101,9 @@ class MainBoardViewController: UIViewController
     func remainAttampt() {
     attempt += 1
     remainAttempt.text = "Round: \(attempt)"
+        if attempt >= 10 {
+            attempt = 0
+            
+        }
    }
 }
