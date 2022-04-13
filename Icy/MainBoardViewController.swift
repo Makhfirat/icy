@@ -22,7 +22,7 @@ class MainBoardViewController: UIViewController
     var score: Int = 0
     // Score calculated by the player
     
-    var attempt: Int = 1
+    var attempt: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +91,7 @@ class MainBoardViewController: UIViewController
         // 3.Zerofy the scores
         score = 0
             scoreLabel.text = "Очки:" + String (score)
-        //remainAttempt
+        remainAttampt()
         
     }
     func updateGuessingNumber() {
@@ -103,7 +103,24 @@ class MainBoardViewController: UIViewController
     remainAttempt.text = "Round: \(attempt)"
         if attempt >= 10 {
             attempt = 0
-            
+            showResults()
         }
-   }
+        
+    }
+
+    func showResults(){
+        // Сjздаем Alert
+        let alert = UIAlertController(title: "Итоги игры" ,  message: "Вы заработали \(score) очки", preferredStyle: .alert)
+        //Создаем кнопку для Alert
+        let okButton: UIAlertAction = UIAlertAction(title: "Начать сначала", style: .default, handler: { _ in
+            print("на меня нажали")
+        
+            self.setUp()
+    })
+        //Добавили кнопку в alert
+        alert.addAction(okButton)
+        
+        //Отобразили Alert экране
+        present(alert, animated: true)
+    }
 }
